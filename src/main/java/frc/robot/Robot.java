@@ -228,7 +228,8 @@ import edu.wpi.first.wpilibj.AddressableLED;
         }
         if(time1.get() >.5 && time1.get() <1){
           m_itBottom.set(.35);
-          m_itTop.set(.35); }
+          m_itTop.set(.35); 
+        }
         if(time1.get() >1 && time1.get() <1.5){
           m_fwBottom.set(0);
           m_fwTop.set(0);
@@ -249,35 +250,39 @@ import edu.wpi.first.wpilibj.AddressableLED;
           m_itBottom.set(.35);
           m_itTop.set(.35);
         }
-        if(time1.get()>3.3 && time1.get() <3.5){
+        if(time1.get()>3.3 && time1.get() <3.8){
           m_leftMotorLeader.set(0);
           m_rightMotorLeader.set(0);
           m_itBottom.set(0);
           m_itTop.set(0);
         }
-        if(time1.get()>3.5 && time1.get() <4.5){
-          m_leftMotorLeader.set(.5);
-          m_rightMotorLeader.set(.5);
+        if(time1.get()>3.8 && time1.get() <4.9){
+          m_leftMotorLeader.set(-.47);
+          m_rightMotorLeader.set(-.47);
         }
-        if(time1.get()>4.5 && time1.get() <4.7){
+        if(time1.get()>4.9 && time1.get() <5){
           m_leftMotorLeader.set(0);
           m_rightMotorLeader.set(0);
         }
-        if(time1.get() >4.7 && time1.get() <5.2){
-          m_leftMotorLeader.set(-.1);
-          m_rightMotorLeader.set(-.5);
+        if(time1.get() >5 && time1.get() <5.5){
+          m_leftMotorLeader.set(-.5);
+          m_rightMotorLeader.set(-.11);
         }        
-        if(time1.get() >5.2 && time1.get() <5.8){
-          m_fwBottom.set(.75);
-          m_fwTop.set(.75);
+        if(time1.get() >5.5 && time1.get() <6.1){
+          m_fwBottom.set(.7);
+          m_fwTop.set(.7);
         }
-        if(time1.get() >5.8 && time1.get() <6.2){
+        if(time1.get() >6.1 && time1.get() <6.5){
           m_itBottom.set(.35);
           m_itTop.set(.35);
         }
-        if(time1.get() >6.2){
+        if(time1.get() >6.5){
           m_leftMotorLeader.set(0);
           m_rightMotorLeader.set(0);
+          m_fwBottom.set(0);
+          m_fwTop.set(0);
+          m_itBottom.set(0);
+          m_itTop.set(0);
         }}
 
     //     // red amp
