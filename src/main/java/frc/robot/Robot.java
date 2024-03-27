@@ -28,9 +28,6 @@ import edu.wpi.first.wpilibj.PneumaticHub;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.AddressableLED;
 
-
-
-
 /**
  * This is a demo program showing the use of the DifferentialDrive class. Runs the motors with
  * arcade steering.
@@ -399,7 +396,7 @@ import edu.wpi.first.wpilibj.AddressableLED;
     //Intake
     if (m_operator.getRawAxis(XboxController.Axis.kLeftTrigger.value) > .05) {
       for (var i = 0; i < m_ledBuffer.getLength(); i++) 
-      m_ledBuffer.setRGB(i, 150, 0, 150);
+      m_ledBuffer.setRGB(i, 151, 0, 150);
       m_itTop.set(.35);
       m_itBottom.set(.35);
     }else if (m_operator.getRawButton(XboxController.Button.kLeftBumper.value)) {
