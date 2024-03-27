@@ -194,7 +194,7 @@ import edu.wpi.first.wpilibj.AddressableLED;
 
     //      break;
 
-        //  case "blue left":
+        //  case "left":
         //     if(time1.get() <.5){
         //   m_fwBottom.set(.75);
         //   m_fwTop.set(.75);
@@ -258,7 +258,7 @@ import edu.wpi.first.wpilibj.AddressableLED;
         //   m_itTop.set(0);
         // }}
 
-        //red right
+        // case "right":
             if(time1.get() <.5){
           m_fwBottom.set(.75);
           m_fwTop.set(.75);
