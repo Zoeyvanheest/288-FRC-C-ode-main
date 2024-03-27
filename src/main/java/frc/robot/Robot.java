@@ -21,6 +21,8 @@ import com.revrobotics.CANSparkLowLevel.MotorType;
 import edu.wpi.first.wpilibj.Timer;
 import javax.swing.text.html.parser.Element;
 import com.ctre.phoenix6.hardware.TalonFX;
+import com.ctre.phoenix6.signals.NeutralModeValue;
+
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.util.Color;
@@ -94,6 +96,10 @@ import edu.wpi.first.wpilibj.AddressableLED;
     m_Compressor.enableDigital();
     CameraServer.startAutomaticCapture("cam0",0);
 
+    //flywheel 
+    m_fwBottom.setNeutralMode(NeutralModeValue.Brake);
+    m_fwTop.setNeutralMode(NeutralModeValue.Brake);
+
     //LED
     m_led.setLength(m_ledBuffer.getLength());
     m_led.setData(m_ledBuffer);
@@ -125,239 +131,239 @@ import edu.wpi.first.wpilibj.AddressableLED;
 
   @Override 
   public void autonomousPeriodic() {
-  //  String auton = SmartDashboard.getString("Auto Selector", "middle");
-    //switch(auton) {
-      // //case "blue right":
+   String auton = SmartDashboard.getString("Auto Selector", "middle");
+    // switch(auton) {
+    //   case "blue right":
+    //     if(time1.get() <.5){
+    //       m_fwBottom.set(.6);
+    //       m_fwTop.set(.6);}
+    //     if(time1.get() >.5 && time1.get() <1){
+    //       m_itBottom.set(-.5);
+    //       m_itTop.set(-.5); }
+    //     if(time1.get() >1 && time1.get() <1.5){
+    //       m_fwBottom.set(0);
+    //       m_fwTop.set(0);
+    //       m_itBottom.set(0);
+    //       m_itTop.set(0);
+    //     }
+    //     if(time1.get() >1.5 && time1.get() <2.7){
+    //       m_leftMotorLeader.set(.5);
+    //       m_rightMotorLeader.set(.65);
+    //     }
+    //     if(time1.get() >2.7 && time1.get() <3.2){
+    //       m_leftMotorLeader.set(5);
+    //       m_rightMotorLeader.set(5);
+    //     }
+    //     if(time1.get()>3.2){
+    //       m_leftMotorLeader.set(0);
+    //       m_rightMotorLeader.set(0);
+    //     }
+    //     break;
+
+    //   case "middle":
         // if(time1.get() <.5){
         //   m_fwBottom.set(.6);
-        //   m_fwTop.set(.6);}
+        //   m_fwTop.set(.6);
+        // } 
         // if(time1.get() >.5 && time1.get() <1){
-        //   m_itBottom.set(-.5);
-        //   m_itTop.set(-.5); }
+        //   m_itBottom.set(.35);
+        //   m_itTop.set(.35); 
+        // }
         // if(time1.get() >1 && time1.get() <1.5){
+        //   m_fwBottom.set(-.1);
+        //   m_fwTop.set(-.1);
+        //   m_itBottom.set(0);
+        //   m_itTop.set(0);
+        // }
+        // if(time1.get() >1.5 && time1.get() <2){
         //   m_fwBottom.set(0);
         //   m_fwTop.set(0);
-        //   m_itBottom.set(0);
-        //   m_itTop.set(0);
         // }
-        // if(time1.get() >1.5 && time1.get() <2.7){
-        //   m_leftMotorLeader.set(.5);
-        //   m_rightMotorLeader.set(.65);
-        // }
-        // if(time1.get() >2.7 && time1.get() <3.2){
-        //   m_leftMotorLeader.set(5);
-        //   m_rightMotorLeader.set(5);
-        // }
-        // if(time1.get()>3.2){
-        //   m_leftMotorLeader.set(0);
-        //   m_rightMotorLeader.set(0);
-        // }
-        //break;
-
-      // case "middle":
-        if(time1.get() <.5){
-          m_fwBottom.set(.6);
-          m_fwTop.set(.6);
-        } 
-        if(time1.get() >.5 && time1.get() <1){
-          m_itBottom.set(.5);
-          m_itTop.set(.5); 
-        }
-        if(time1.get() >1 && time1.get() <1.5){
-          m_fwBottom.set(.2);
-          m_fwTop.set(.2);
-          m_itBottom.set(0);
-          m_itTop.set(0);
-        }
-        if(time1.get() >1.5 && time1.get() <2){
-          m_fwBottom.set(0);
-          m_fwTop.set(0);
-        }
-        if(time1.get() >2 && time1.get() <3.3){
-          m_leftMotorLeader.set(.5);
-          m_rightMotorLeader.set(.5);
-          m_itTop.set(.5);
-          m_itBottom.set(.5);
-        }
-        if(time1.get() >3.3 && time1.get() <3.5){
-          m_leftMotorLeader.set(0);
-          m_rightMotorLeader.set(0);
-          m_itTop.set(0);
-          m_itBottom.set(0);
-        }
-        if(time1.get()>4 && time1.get() <5.3){
-          m_leftMotorLeader.set(-.5);
-          m_rightMotorLeader.set(-.5);
-        }
-        if(time1.get()>5.3 && time1.get() <5.5){
-          m_leftMotorLeader.set(0);
-          m_rightMotorLeader.set(0);
-        }
-        if(time1.get()>6 && time1.get() <7){
-          m_fwBottom.set(.65);
-          m_fwTop.set(.65);
-        }
-        if(time1.get()>7 && time1.get() <7.5){
-          m_itBottom.set(.5);
-          m_itTop.set(.5);
-        }
-        if(time1.get()>7.5 && time1.get()<8){
-          m_fwBottom.set(0);
-          m_fwTop.set(0);
-          m_itBottom.set(0);
-          m_itTop.set(0);
-        }
-        if(time1.get()>7.5){
-          m_leftMotorLeader.set(0);
-          m_rightMotorLeader.set(0);
-        }
-       
-
-         // break;
-
-      //    //case "blue left":
-      //       if(time1.get() <.5){
-      //     m_fwBottom.set(.75);
-      //     m_fwTop.set(.75);
-      //   }
-      //   if(time1.get() >.5 && time1.get() <1){
-      //     m_itBottom.set(-.5);
-      //     m_itTop.set(-.5); }
-      //   if(time1.get() >1 && time1.get() <1.5){
-      //     m_fwBottom.set(0);
-      //     m_fwTop.set(0);
-      //     m_itBottom.set(0);
-      //     m_itTop.set(0);
-      //   }
-      //   if(time1.get() >1.5 && time1.get() <2.1){
-      //     m_leftMotorLeader.set(.1);
-      //     m_rightMotorLeader.set(.5);
-      //   }
-      //   if(time1.get()>2.1 && time1.get() <2.3){
-      //     m_leftMotorLeader.set(0);
-      //     m_rightMotorLeader.set(0);
-      //   }
-      //   if(time1.get()>2.3 && time1.get() <3.3){
-      //     m_leftMotorLeader.set(.5);
-      //     m_rightMotorLeader.set(.5);
-      //     m_itBottom.set(-.55);
-      //     m_itTop.set(-.55);
-      //   }
-      //   if(time1.get()>3.3 && time1.get() <3.5){
-      //     m_leftMotorLeader.set(0);
-      //     m_rightMotorLeader.set(0);
-      //     m_itBottom.set(0);
-      //     m_itTop.set(0);
-      //   }
-      //   if(time1.get()>3.5 && time1.get() <4.5){
-      //     m_leftMotorLeader.set(-.5);
-      //     m_rightMotorLeader.set(-.5);
-      //   }
-      //   if(time1.get()>4.5 && time1.get() <4.7){
-      //     m_leftMotorLeader.set(0);
-      //     m_rightMotorLeader.set(0);
-      //   }
-      //   if(time1.get() >4.7 && time1.get() <5.2){
-      //     m_leftMotorLeader.set(-.5);
-      //     m_rightMotorLeader.set(-.1);
-      //   }        
-      //   if(time1.get() >5.2 && time1.get() <5.8){
-      //     m_fwBottom.set(.75);
-      //     m_fwTop.set(.75);
-      //   }
-      //   if(time1.get() >5.8 && time1.get() <6.2){
-      //     m_itBottom.set(-.5);
-      //     m_itTop.set(-.5);
-      //   }
-      //   if(time1.get() >6.2){
-      //     m_leftMotorLeader.set(0);
-      //     m_rightMotorLeader.set(0);
-      //   }
-
-        // //red amp
-        // if(time1.get() <.5){
-        //   m_fwBottom.set(.75);
-        //   m_fwTop.set(.75);
-        // }
-        // if(time1.get() >.5 && time1.get() <1){
-        //   m_itBottom.set(-.5);
-        //   m_itTop.set(-.5); }
-        // if(time1.get() >1 && time1.get() <1.5){
-        //   m_fwBottom.set(0);
-        //   m_fwTop.set(0);
-        //   m_itBottom.set(0);
-        //   m_itTop.set(0);
-        // }
-        // if(time1.get() >1.5 && time1.get() <2.2){
-        //   m_leftMotorLeader.set(.1);
-        //   m_rightMotorLeader.set(.5);
-        // }
-        // if(time1.get()>2.2 && time1.get() <2.3){
-        //   m_leftMotorLeader.set(0);
-        //   m_rightMotorLeader.set(0);
-        // }
-        // if(time1.get()>2.3 && time1.get() <3.3){
+        // if(time1.get() >2 && time1.get() <3.3){
         //   m_leftMotorLeader.set(.5);
         //   m_rightMotorLeader.set(.5);
-        //   m_itBottom.set(-.55);
-        //   m_itTop.set(-.55);
+        //   m_itTop.set(.35);
+        //   m_itBottom.set(.35);
         // }
-        // if(time1.get()>3.3 && time1.get() <3.5){
+        // if(time1.get() >3.3 && time1.get() <3.5){
         //   m_leftMotorLeader.set(0);
         //   m_rightMotorLeader.set(0);
-        //   m_itBottom.set(0);
         //   m_itTop.set(0);
+        //   m_itBottom.set(0);
         // }
-        // if(time1.get()>3.5 && time1.get() <4.5){
+        // if(time1.get()>4 && time1.get() <5.3){
         //   m_leftMotorLeader.set(-.5);
         //   m_rightMotorLeader.set(-.5);
         // }
-        // if(time1.get()>4.5 && time1.get() <4.7){
+        // if(time1.get()>5.3 && time1.get() <5.5){
         //   m_leftMotorLeader.set(0);
         //   m_rightMotorLeader.set(0);
         // }
-        // if(time1.get() >4.7 && time1.get() <5.2){
-        //   m_leftMotorLeader.set(-.1);
-        //   m_rightMotorLeader.set(-.5);
-        // }        
-        // if(time1.get() >5.2 && time1.get() <5.8){
-        //   m_fwBottom.set(.75);
-        //   m_fwTop.set(.75);
+        // if(time1.get()>6 && time1.get() <7){
+        //   m_fwBottom.set(.7);
+        //   m_fwTop.set(.7);
         // }
-        // if(time1.get() >5.8 && time1.get() <6.2){
-        //   m_itBottom.set(-.5);
-        //   m_itTop.set(-.5);
+        // if(time1.get()>7 && time1.get() <7.5){
+        //   m_itBottom.set(.5);
+        //   m_itTop.set(.5);
         // }
-        // if(time1.get()>3 && time1.get() <3.5){
-        //   m_rightMotorLeader.set(.5);
-        // }
-        // if(time1.get() >2.7 && time1.get() <3){
-        //   m_leftMotorLeader.set(0);
-        //   m_rightMotorLeader.set(0);
-        // }
-
-        //red leave
-        // if(time1.get() <.5){
-        //   m_fwBottom.set(.6);
-        //   m_fwTop.set(.6);}
-        // if(time1.get() >.5 && time1.get() <1){
-        //   m_itBottom.set(-.5);
-        //   m_itTop.set(-.5); }
-        // if(time1.get() >1 && time1.get() <1.5){
+        // if(time1.get()>7.5 && time1.get()<8){
         //   m_fwBottom.set(0);
         //   m_fwTop.set(0);
         //   m_itBottom.set(0);
         //   m_itTop.set(0);
         // }
-        // if(time1.get() >1.5 && time1.get() <2.7){
-        //   m_rightMotorLeader.set(.5);
-        //   m_leftMotorLeader.set(.65);
-        // }
-        // if(time1.get() >2.7 && time1.get() <3){
+        // if(time1.get()>7.5){
         //   m_leftMotorLeader.set(0);
         //   m_rightMotorLeader.set(0);
-        // }
-      }
+        // }}
+       
+
+    //      break;
+
+        //  case "blue left":
+            if(time1.get() <.5){
+          m_fwBottom.set(.75);
+          m_fwTop.set(.75);
+        }
+        if(time1.get() >.5 && time1.get() <1){
+          m_itBottom.set(.35);
+          m_itTop.set(.35); }
+        if(time1.get() >1 && time1.get() <1.5){
+          m_fwBottom.set(0);
+          m_fwTop.set(0);
+          m_itBottom.set(0);
+          m_itTop.set(0);
+        }
+        if(time1.get() >1.5 && time1.get() <2.1){
+          m_leftMotorLeader.set(.5);
+          m_rightMotorLeader.set(.1);
+        }
+        if(time1.get()>2.1 && time1.get() <2.3){
+          m_leftMotorLeader.set(0);
+          m_rightMotorLeader.set(0);
+        }
+        if(time1.get()>2.3 && time1.get() <3.3){
+          m_leftMotorLeader.set(.5);
+          m_rightMotorLeader.set(.5);
+          m_itBottom.set(.35);
+          m_itTop.set(.35);
+        }
+        if(time1.get()>3.3 && time1.get() <3.5){
+          m_leftMotorLeader.set(0);
+          m_rightMotorLeader.set(0);
+          m_itBottom.set(0);
+          m_itTop.set(0);
+        }
+        if(time1.get()>3.5 && time1.get() <4.5){
+          m_leftMotorLeader.set(.5);
+          m_rightMotorLeader.set(.5);
+        }
+        if(time1.get()>4.5 && time1.get() <4.7){
+          m_leftMotorLeader.set(0);
+          m_rightMotorLeader.set(0);
+        }
+        if(time1.get() >4.7 && time1.get() <5.2){
+          m_leftMotorLeader.set(-.1);
+          m_rightMotorLeader.set(-.5);
+        }        
+        if(time1.get() >5.2 && time1.get() <5.8){
+          m_fwBottom.set(.75);
+          m_fwTop.set(.75);
+        }
+        if(time1.get() >5.8 && time1.get() <6.2){
+          m_itBottom.set(.35);
+          m_itTop.set(.35);
+        }
+        if(time1.get() >6.2){
+          m_leftMotorLeader.set(0);
+          m_rightMotorLeader.set(0);
+        }}
+
+    //     // red amp
+    //     if(time1.get() <.5){
+    //       m_fwBottom.set(.75);
+    //       m_fwTop.set(.75);
+    //     }
+    //     if(time1.get() >.5 && time1.get() <1){
+    //       m_itBottom.set(-.5);
+    //       m_itTop.set(-.5); }
+    //     if(time1.get() >1 && time1.get() <1.5){
+    //       m_fwBottom.set(0);
+    //       m_fwTop.set(0);
+    //       m_itBottom.set(0);
+    //       m_itTop.set(0);
+    //     }
+    //     if(time1.get() >1.5 && time1.get() <2.2){
+    //       m_leftMotorLeader.set(.1);
+    //       m_rightMotorLeader.set(.5);
+    //     }
+    //     if(time1.get()>2.2 && time1.get() <2.3){
+    //       m_leftMotorLeader.set(0);
+    //       m_rightMotorLeader.set(0);
+    //     }
+    //     if(time1.get()>2.3 && time1.get() <3.3){
+    //       m_leftMotorLeader.set(.5);
+    //       m_rightMotorLeader.set(.5);
+    //       m_itBottom.set(-.55);
+    //       m_itTop.set(-.55);
+    //     }
+    //     if(time1.get()>3.3 && time1.get() <3.5){
+    //       m_leftMotorLeader.set(0);
+    //       m_rightMotorLeader.set(0);
+    //       m_itBottom.set(0);
+    //       m_itTop.set(0);
+    //     }
+    //     if(time1.get()>3.5 && time1.get() <4.5){
+    //       m_leftMotorLeader.set(-.5);
+    //       m_rightMotorLeader.set(-.5);
+    //     }
+    //     if(time1.get()>4.5 && time1.get() <4.7){
+    //       m_leftMotorLeader.set(0);
+    //       m_rightMotorLeader.set(0);
+    //     }
+    //     if(time1.get() >4.7 && time1.get() <5.2){
+    //       m_leftMotorLeader.set(-.1);
+    //       m_rightMotorLeader.set(-.5);
+    //     }        
+    //     if(time1.get() >5.2 && time1.get() <5.8){
+    //       m_fwBottom.set(.75);
+    //       m_fwTop.set(.75);
+    //     }
+    //     if(time1.get() >5.8 && time1.get() <6.2){
+    //       m_itBottom.set(-.5);
+    //       m_itTop.set(-.5);
+    //     }
+    //     if(time1.get()>3 && time1.get() <3.5){
+    //       m_rightMotorLeader.set(.5);
+    //     }
+    //     if(time1.get() >2.7 && time1.get() <3){
+    //       m_leftMotorLeader.set(0);
+    //       m_rightMotorLeader.set(0);
+    //     }
+
+    //     // red leave
+    //     if(time1.get() <.5){
+    //       m_fwBottom.set(.6);
+    //       m_fwTop.set(.6);}
+    //     if(time1.get() >.5 && time1.get() <1){
+    //       m_itBottom.set(-.5);
+    //       m_itTop.set(-.5); }
+    //     if(time1.get() >1 && time1.get() <1.5){
+    //       m_fwBottom.set(0);
+    //       m_fwTop.set(0);
+    //       m_itBottom.set(0);
+    //       m_itTop.set(0);
+    //     }
+    //     if(time1.get() >1.5 && time1.get() <2.7){
+    //       m_rightMotorLeader.set(.5);
+    //       m_leftMotorLeader.set(.65);
+    //     }
+    //     if(time1.get() >2.7 && time1.get() <3){
+    //       m_leftMotorLeader.set(0);
+    //       m_rightMotorLeader.set(0);
+    //     }
+    //   }}
 
   
   @Override
