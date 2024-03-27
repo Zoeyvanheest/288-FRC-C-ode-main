@@ -275,7 +275,7 @@ import edu.wpi.first.wpilibj.AddressableLED;
         }
         if(time1.get() >1.5 && time1.get() <2.1){
           m_leftMotorLeader.set(.1);
-          m_rightMotorLeader.set(.5);
+          m_rightMotorLeader.set(.60);
         }
         if(time1.get()>2.1 && time1.get() <2.3){
           m_leftMotorLeader.set(0);
@@ -301,9 +301,9 @@ import edu.wpi.first.wpilibj.AddressableLED;
           m_leftMotorLeader.set(0);
           m_rightMotorLeader.set(0);
         }
-        if(time1.get() >5 && time1.get() <5.5){
+        if(time1.get() >5 && time1.get() <55){
           m_leftMotorLeader.set(-.11);
-          m_rightMotorLeader.set(-.5);
+          m_rightMotorLeader.set(-.60);
         }        
         if(time1.get() >5.5 && time1.get() <6.1){
           m_fwBottom.set(.7);
