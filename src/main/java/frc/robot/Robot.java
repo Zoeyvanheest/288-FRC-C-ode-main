@@ -257,8 +257,8 @@ import edu.wpi.first.wpilibj.AddressableLED;
           m_itTop.set(0);
         }
         if(time1.get()>3.8 && time1.get() <4.9){
-          m_leftMotorLeader.set(-.47);
-          m_rightMotorLeader.set(-.47);
+          m_leftMotorLeader.set(-.45);
+          m_rightMotorLeader.set(-.45);
         }
         if(time1.get()>4.9 && time1.get() <5){
           m_leftMotorLeader.set(0);
