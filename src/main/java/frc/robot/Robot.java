@@ -132,33 +132,6 @@ import edu.wpi.first.wpilibj.AddressableLED;
   @Override 
   public void autonomousPeriodic() {
    String auton = SmartDashboard.getString("Auto Selector", "middle");
-    // switch(auton) {
-    //   case "blue right":
-    //     if(time1.get() <.5){
-    //       m_fwBottom.set(.6);
-    //       m_fwTop.set(.6);}
-    //     if(time1.get() >.5 && time1.get() <1){
-    //       m_itBottom.set(-.5);
-    //       m_itTop.set(-.5); }
-    //     if(time1.get() >1 && time1.get() <1.5){
-    //       m_fwBottom.set(0);
-    //       m_fwTop.set(0);
-    //       m_itBottom.set(0);
-    //       m_itTop.set(0);
-    //     }
-    //     if(time1.get() >1.5 && time1.get() <2.7){
-    //       m_leftMotorLeader.set(.5);
-    //       m_rightMotorLeader.set(.65);
-    //     }
-    //     if(time1.get() >2.7 && time1.get() <3.2){
-    //       m_leftMotorLeader.set(5);
-    //       m_rightMotorLeader.set(5);
-    //     }
-    //     if(time1.get()>3.2){
-    //       m_leftMotorLeader.set(0);
-    //       m_rightMotorLeader.set(0);
-    //     }
-    //     break;
 
     //   case "middle":
         // if(time1.get() <.5){
@@ -222,6 +195,70 @@ import edu.wpi.first.wpilibj.AddressableLED;
     //      break;
 
         //  case "blue left":
+        //     if(time1.get() <.5){
+        //   m_fwBottom.set(.75);
+        //   m_fwTop.set(.75);
+        // }
+        // if(time1.get() >.5 && time1.get() <1){
+        //   m_itBottom.set(.35);
+        //   m_itTop.set(.35); 
+        // }
+        // if(time1.get() >1 && time1.get() <1.5){
+        //   m_fwBottom.set(0);
+        //   m_fwTop.set(0);
+        //   m_itBottom.set(0);
+        //   m_itTop.set(0);
+        // }
+        // if(time1.get() >1.5 && time1.get() <2.1){
+        //   m_leftMotorLeader.set(.5);
+        //   m_rightMotorLeader.set(.1);
+        // }
+        // if(time1.get()>2.1 && time1.get() <2.3){
+        //   m_leftMotorLeader.set(0);
+        //   m_rightMotorLeader.set(0);
+        // }
+        // if(time1.get()>2.3 && time1.get() <3.3){
+        //   m_leftMotorLeader.set(.5);
+        //   m_rightMotorLeader.set(.5);
+        //   m_itBottom.set(.35);
+        //   m_itTop.set(.35);
+        // }
+        // if(time1.get()>3.3 && time1.get() <3.8){
+        //   m_leftMotorLeader.set(0);
+        //   m_rightMotorLeader.set(0);
+        //   m_itBottom.set(0);
+        //   m_itTop.set(0);
+        // }
+        // if(time1.get()>3.8 && time1.get() <4.9){
+        //   m_leftMotorLeader.set(-.45);
+        //   m_rightMotorLeader.set(-.45);
+        // }
+        // if(time1.get()>4.9 && time1.get() <5){
+        //   m_leftMotorLeader.set(0);
+        //   m_rightMotorLeader.set(0);
+        // }
+        // if(time1.get() >5 && time1.get() <5.5){
+        //   m_leftMotorLeader.set(-.5);
+        //   m_rightMotorLeader.set(-.11);
+        // }        
+        // if(time1.get() >5.5 && time1.get() <6.1){
+        //   m_fwBottom.set(.7);
+        //   m_fwTop.set(.7);
+        // }
+        // if(time1.get() >6.1 && time1.get() <6.5){
+        //   m_itBottom.set(.35);
+        //   m_itTop.set(.35);
+        // }
+        // if(time1.get() >6.5){
+        //   m_leftMotorLeader.set(0);
+        //   m_rightMotorLeader.set(0);
+        //   m_fwBottom.set(0);
+        //   m_fwTop.set(0);
+        //   m_itBottom.set(0);
+        //   m_itTop.set(0);
+        // }}
+
+        //red right
             if(time1.get() <.5){
           m_fwBottom.set(.75);
           m_fwTop.set(.75);
@@ -237,8 +274,8 @@ import edu.wpi.first.wpilibj.AddressableLED;
           m_itTop.set(0);
         }
         if(time1.get() >1.5 && time1.get() <2.1){
-          m_leftMotorLeader.set(.5);
-          m_rightMotorLeader.set(.1);
+          m_leftMotorLeader.set(.1);
+          m_rightMotorLeader.set(.5);
         }
         if(time1.get()>2.1 && time1.get() <2.3){
           m_leftMotorLeader.set(0);
@@ -265,8 +302,8 @@ import edu.wpi.first.wpilibj.AddressableLED;
           m_rightMotorLeader.set(0);
         }
         if(time1.get() >5 && time1.get() <5.5){
-          m_leftMotorLeader.set(-.5);
-          m_rightMotorLeader.set(-.11);
+          m_leftMotorLeader.set(-.11);
+          m_rightMotorLeader.set(-.5);
         }        
         if(time1.get() >5.5 && time1.get() <6.1){
           m_fwBottom.set(.7);
@@ -284,91 +321,6 @@ import edu.wpi.first.wpilibj.AddressableLED;
           m_itBottom.set(0);
           m_itTop.set(0);
         }}
-
-    //     // red amp
-    //     if(time1.get() <.5){
-    //       m_fwBottom.set(.75);
-    //       m_fwTop.set(.75);
-    //     }
-    //     if(time1.get() >.5 && time1.get() <1){
-    //       m_itBottom.set(-.5);
-    //       m_itTop.set(-.5); }
-    //     if(time1.get() >1 && time1.get() <1.5){
-    //       m_fwBottom.set(0);
-    //       m_fwTop.set(0);
-    //       m_itBottom.set(0);
-    //       m_itTop.set(0);
-    //     }
-    //     if(time1.get() >1.5 && time1.get() <2.2){
-    //       m_leftMotorLeader.set(.1);
-    //       m_rightMotorLeader.set(.5);
-    //     }
-    //     if(time1.get()>2.2 && time1.get() <2.3){
-    //       m_leftMotorLeader.set(0);
-    //       m_rightMotorLeader.set(0);
-    //     }
-    //     if(time1.get()>2.3 && time1.get() <3.3){
-    //       m_leftMotorLeader.set(.5);
-    //       m_rightMotorLeader.set(.5);
-    //       m_itBottom.set(-.55);
-    //       m_itTop.set(-.55);
-    //     }
-    //     if(time1.get()>3.3 && time1.get() <3.5){
-    //       m_leftMotorLeader.set(0);
-    //       m_rightMotorLeader.set(0);
-    //       m_itBottom.set(0);
-    //       m_itTop.set(0);
-    //     }
-    //     if(time1.get()>3.5 && time1.get() <4.5){
-    //       m_leftMotorLeader.set(-.5);
-    //       m_rightMotorLeader.set(-.5);
-    //     }
-    //     if(time1.get()>4.5 && time1.get() <4.7){
-    //       m_leftMotorLeader.set(0);
-    //       m_rightMotorLeader.set(0);
-    //     }
-    //     if(time1.get() >4.7 && time1.get() <5.2){
-    //       m_leftMotorLeader.set(-.1);
-    //       m_rightMotorLeader.set(-.5);
-    //     }        
-    //     if(time1.get() >5.2 && time1.get() <5.8){
-    //       m_fwBottom.set(.75);
-    //       m_fwTop.set(.75);
-    //     }
-    //     if(time1.get() >5.8 && time1.get() <6.2){
-    //       m_itBottom.set(-.5);
-    //       m_itTop.set(-.5);
-    //     }
-    //     if(time1.get()>3 && time1.get() <3.5){
-    //       m_rightMotorLeader.set(.5);
-    //     }
-    //     if(time1.get() >2.7 && time1.get() <3){
-    //       m_leftMotorLeader.set(0);
-    //       m_rightMotorLeader.set(0);
-    //     }
-
-    //     // red leave
-    //     if(time1.get() <.5){
-    //       m_fwBottom.set(.6);
-    //       m_fwTop.set(.6);}
-    //     if(time1.get() >.5 && time1.get() <1){
-    //       m_itBottom.set(-.5);
-    //       m_itTop.set(-.5); }
-    //     if(time1.get() >1 && time1.get() <1.5){
-    //       m_fwBottom.set(0);
-    //       m_fwTop.set(0);
-    //       m_itBottom.set(0);
-    //       m_itTop.set(0);
-    //     }
-    //     if(time1.get() >1.5 && time1.get() <2.7){
-    //       m_rightMotorLeader.set(.5);
-    //       m_leftMotorLeader.set(.65);
-    //     }
-    //     if(time1.get() >2.7 && time1.get() <3){
-    //       m_leftMotorLeader.set(0);
-    //       m_rightMotorLeader.set(0);
-    //     }
-    //   }}
 
   
   @Override
